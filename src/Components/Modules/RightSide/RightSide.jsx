@@ -70,15 +70,15 @@ const RightSide = ({ activeEl, counter, slide }) => {
               activeEl.map(num => (num.status === true &&
               <div className="analiza__item" key={num.key}>
                 <div className="item__holder">
-                  <h1 className="cart__header">{num.data.title}{num.data.options.length !== 0 ? ' / ' : null}<b>{num.data.options.length !== 0 ? num.data.options[num.indexButton].title : null}</b>
+                  <h1 className="cart__header">{num.data.title}{num.data.options.length !== 0 ? ' / ' : null}<b>{num.data.options.length !== 0 ? num.data.options[num.indexButton].option_title : null}</b>
                   </h1>
                   <div className="price__final__holder">
                     <span> + </span>
                       <span className="price__by__module">
                       {indexChecker === 0 ?
-                      (num.data.options.length > 0 ? ((Number(num.data.price) + (Number(num.data.options[num.indexButton].price))) * coeficient).toFixed(2) : ((num.data.price) * coeficient).toFixed(2))
+                      (num.data.options.length > 0 ? ((Number(num.data.price) + (Number(num.data.options[num.indexButton].price_option))) * coeficient).toFixed(2) : ((num.data.price) * coeficient).toFixed(2))
                       :
-                      (num.data.options.length > 0 ? (((Number(num.data.price) + (Number(num.data.options[num.indexButton].price))) * coeficient) * 12).toFixed(2) : (((num.data.price) * coeficient) * 12).toFixed(2))}
+                      (num.data.options.length > 0 ? (((Number(num.data.price) + (Number(num.data.options[num.indexButton].price_option))) * coeficient) * 12).toFixed(2) : (((num.data.price) * coeficient) * 12).toFixed(2))}
                       </span>
                     <span> PLN {firstMonthHide()} </span>
                     

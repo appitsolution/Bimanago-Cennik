@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 
 const Test = ({ data, editStatus }) => {
 
-  
-
   const [activeButton, setActiveButton] = useState(false);
   const onActiveButton = () => {
     setActiveButton(!activeButton);
@@ -37,7 +35,7 @@ const Test = ({ data, editStatus }) => {
                 className= {activeItem === test ? 'active__pick' : 'disabled__pick'}
                 onClick = {() =>  onActiveItem(test)}
                 >   
-                {item.title}
+                {item.option_title}
               </li>
             )
             )

@@ -1,7 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 
-const Moduleslist = ({item, delFunc}) => {
+const Moduleslist = ({ item }) => {
+  console.log(item)
   const moduleChecker = () => {
     if (item.options !== undefined) {
       if (item.options.length > 1) {
@@ -9,7 +9,7 @@ const Moduleslist = ({item, delFunc}) => {
         <div className="main__option__container">
           <h1 className="option__caption">Options:</h1>
           <div className="options__container">
-            {item.options.map((org, key) => (<h1 key={key} className="option__descr">{org.title}</h1>))}
+            {item.options.map((org, key) => (<h1 key={key} className="option__descr">{org.option_title}</h1>))}
           </div>
         </div>
       )
@@ -17,12 +17,7 @@ const Moduleslist = ({item, delFunc}) => {
     }
   }
 
-  const submit = (evn) => {
-    evn.preventDefault()
-    axios.delete(`https://serene-lowlands-92916.herokuapp.com/tasks/delete/${item.id}`)
-    delFunc(item.id)
-  }
-
+  
   return (
     <div className="main__module__block">  
         <div>
@@ -31,7 +26,6 @@ const Moduleslist = ({item, delFunc}) => {
           <h1 className="item__name">{item.title}</h1>
           <div className="price__button">
             <span className="item__price">price: {item.price}</span>
-            <button className="delete__button" onClick={submit}>Delete</button>
           </div>
         </div>
         {moduleChecker()}

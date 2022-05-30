@@ -4,8 +4,6 @@ import Rightside from '../RightSide/RightSide';
 import axios from 'axios'
 import ChooseModules from './ChooseModules'
 
-let slider = 0
-
 const LeftSide = ({count, slide}) => {
   
   const [arrayActive, setArrayActive] = useState([])
@@ -33,10 +31,10 @@ const LeftSide = ({count, slide}) => {
   }
   const [module, setModule] = useState([])
   const response = async () => {
-    const { data } = await axios.get('https://serene-lowlands-92916.herokuapp.com/');
-    setModule([...data])
+    const { data } = await axios.get('https://dolineofactory.grupaww.jchost09.pl/wp-json/acf/v3/pages/2597');
+    setModule([...data.acf.modul])
     const test = []
-    data.forEach(num => {
+    data.acf.modul.forEach(num => {
       test.push({ key: num.id, status: false, indexButton: 0, data: num })
     })
     setArrayActive(test)
